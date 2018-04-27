@@ -2,6 +2,7 @@ const express = require('express');
 const router = express.Router();
 const mongoose = require('mongoose');
 const Food = require('../models/food.schema');
+const dataFromDatabase = require('../modules/foodDatabase')
 
 router.get('/', (req, res) => {
   Food.find({})
@@ -17,10 +18,8 @@ router.get('/', (req, res) => {
     });
 });
 
-
-
 router.post('/', (req, res) => {
-  //foods.findByIdAndRemove(req.query._id).then(response)
+//   foods.findByIdAndRemove(req.query._id).then(response)
 
   //const foodToAdd = req.body;
   Food.create(req.body)
@@ -35,5 +34,7 @@ router.post('/', (req, res) => {
       res.sendStatus(500);
     });
 });
+
+
 
 module.exports = router;

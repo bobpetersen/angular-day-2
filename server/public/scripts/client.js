@@ -7,13 +7,13 @@ app.controller('FoodController', [
     var self = this; // holds the value of this
 
     self.foodList = [];
-
+    getFood();
     self.newFood = {};
 
     self.food = [
       {
         name: 'Apple',
-        deliciousness_rating: '9',
+        rating: '9',
         is_hot: 'No'
       }
     ];
@@ -25,14 +25,15 @@ app.controller('FoodController', [
         data: self.newFood //params for delete
       })
         .then(function(response) {
-          console.log(response);
+         getFood();
+        console.log(response);
         })
         .catch(function(error) {
           console.log('error on /food POST', error);
         });
     };
 
-    self.getFood = function() {
+    function getFood() {
       $http({
         method: 'GET', // will be PUT for save
         url: '/foods'
@@ -44,7 +45,7 @@ app.controller('FoodController', [
           console.log('error on /food GET', error);
         });
     };
-    self.getFood();
+    
   }
   
 ]);
