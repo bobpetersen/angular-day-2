@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="vendors/angular.js"></script>
+    <script src="scripts/client.js"></script>
+    <title>Angular Full Stack Kitchen</title>
+</head>
+
+<body ng-app="FoodApp" ng-controller="FoodController as vm">
+    <h1>Angular Full Stack Kitchen</h1>
+    <!-- vm.foodList: {{vm.food}} -->
+    <!-- <input ng-model="vm.food" /> {{vm.food}} -->
+
+    <div>
+        <input type="text" name="name" ng-model="vm.newFood.name" placeholder="Food Name" />
+    </div>
+    <div>
+        <input type="text" name="deliciousness_rating" ng-model="vm.newFood.deliciousness_rating" placeholder="Rating" />
+    </div>
+    <div>
+        <input type="text" name="is_hot" ng-model="vm.newFood.is_hot" placeholder="Hot?" />
+    </div>
+    <div>
+        <button ng-click="vm.createFoodEntry()">New Food</button>
+    </div>
+    <table>
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Deliciousness Rating</th>
+                <!-- <th>Delete</th>
+                <th>Save</th> -->
+            </tr>
+        </thead>
+        <tbody>
+            <tr ng-repeat="food in vm.foodList">
+                <td>
+                    <input ng-model="food.name" />
+                </td>
+                <td>
+                    <input ng-model="food.deliciousness_rating" />
+                </td>
+                <!-- <td>
+                    <button ng-model="vm.deleteFood(food)">Delete</button>
+                </td>
+                <td>
+                    <button ng-click="vm.createFood(food)">Save</button>
+                </td> -->
+            </tr>
+        </tbody>
+    </table>
+</body>
+
+</html>
